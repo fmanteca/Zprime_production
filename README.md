@@ -16,7 +16,7 @@ Create the gridpacks
 ```
 python genGridpack_ZprimeToMuMu.py
 ```
-/eos/cms/store/group/phys_muon/fernanpe/rootfiles/*tar*
+Output: /eos/cms/store/group/phys_muon/fernanpe/rootfiles/*tar.xz
 
 Create the LHE file
 --------------
@@ -24,7 +24,7 @@ Create the LHE file
 tar xvf ZprimeToMuMu5000_slc6_amd64_gcc630_CMSSW_9_3_16_tarball.tar.xz
 ./runcmsgrid_LO.sh 1000000 $RANDOM 40
 ```
-/eos/cms/store/group/phys_muon/fernanpe/rootfiles/*lhe*
+Output: /eos/cms/store/group/phys_muon/fernanpe/rootfiles/*lhe
 
 Produce the GEN-SIM
 --------------

@@ -74,6 +74,32 @@ process.genstepfilter.triggerConditions=cms.vstring("generation_step")
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '94X_mc2017_realistic_v10', '')
 
+
+from Configuration.Generator.Pythia8CommonSettings_cfi import *
+from Configuration.Generator.MCTunes2017.PythiaCP2Settings_cfi import *
+
+process.generator = cms.EDFilter("Pythia8HadronizerFilter",
+                         maxEventsToPrint = cms.untracked.int32(1),
+                         pythiaPylistVerbosity = cms.untracked.int32(1),
+                         filterEfficiency = cms.untracked.double(1.0),
+                         pythiaHepMCVerbosity = cms.untracked.bool(False),
+                         comEnergy = cms.double(13000.),
+                         PythiaParameters = cms.PSet(
+        pythia8CommonSettingsBlock,
+        pythia8CP2SettingsBlock,
+        processParameters = cms.vstring(
+            'SLHA:useDecayTable = off',  # Use pythia8s own decay mode instead of decays defined in LH accord
+            '25:m0 = 125.0', 
+#            '25:onMode = off',
+#            '25:onIfMatch = 24 -24',           # turn ON H->WW
+            ),
+        parameterSets = cms.vstring('pythia8CommonSettings',
+                                    'pythia8CP2Settings',
+                                    'processParameters'
+                                    )
+        )
+                         )
+
 # Path and EndPath definitions
 process.generation_step = cms.Path(process.pgen)
 process.simulation_step = cms.Path(process.psim)
@@ -89,6 +115,12 @@ associatePatAlgosToolsTask(process)
 #Setup FWK for multithreaded
 process.options.numberOfThreads=cms.untracked.uint32(8)
 process.options.numberOfStreams=cms.untracked.uint32(0)
+
+#filter all path with the production filter sequence
+for path in process.paths:
+	if path in ['lhe_step']: continue
+	getattr(process,path)._seq = process.generator * getattr(process,path)._seq 
+
 
 # customisation of the process.
 

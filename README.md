@@ -36,3 +36,9 @@ Need to include the pythia fragment. I do not understand why... Have a look at t
 ```
 crab submit -c crab_cfg_step0.py
 ```
+
+Add PREMIX + TRIGGER
+--------------
+```
+crab submit -c crab_cfg_step1.py
+```

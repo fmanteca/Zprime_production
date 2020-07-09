@@ -32,7 +32,7 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("LHESource",
     dropDescendantsOfDroppedBranches = cms.untracked.bool(False),
-    fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_muon/fernanpe/rootfiles/ZprimeToMuMu5000.lhe'),
+    fileNames = cms.untracked.vstring('file:/eos/cms/store/group/phys_muon/fernanpe/rootfiles/ZprimeToMuMu5000_100k_1.lhe'),
     inputCommands = cms.untracked.vstring('keep *', 
         'drop LHEXMLStringProduct_*_*_*')
 )

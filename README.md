@@ -1,6 +1,24 @@
 DOCUMENTATION
 =========================
 
+Create the gridpacks
+--------------
+cmsrel CMSSW_9_4_9
+cd CMSSW_9_4_9/src/
+scram b
+git clone https://github.com/cms-sw/genproductions.git
+cd genproductions/bin/MadGraph5_aMCatNLO/
+
+Create the gridpacks
+--------------
+python genGridpack_ZprimeToMuMu.py
+
+
+Create the LHE file
+--------------
+./runcmsgrid_LO.sh 1000000 $RANDOM 40
+
+
 Produce the GEN-SIM
 --------------
 

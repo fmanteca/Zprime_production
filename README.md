@@ -1,7 +1,7 @@
 DOCUMENTATION
 =========================
 
-Create the gridpacks
+Setup
 --------------
 ```
 cmsrel CMSSW_9_4_9

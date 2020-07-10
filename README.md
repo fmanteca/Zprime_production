@@ -42,3 +42,9 @@ Add PREMIX + TRIGGER
 ```
 crab submit -c crab_cfg_step1.py
 ```
+
+Produce RECO
+--------------
+```
+crab submit -c crab_cfg_step2.py
+```

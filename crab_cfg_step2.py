@@ -20,7 +20,7 @@ config.Data.outputDatasetTag = 'ZprimeToMuMu5000_GEN_SIM_PREMIX_RECO'
 config.Data.inputDBS = 'phys03'
 config.Data.outLFNDirBase = '/store/user/fernanpe/'
 config.Data.publication = True
-config.Data.inputDataset = '/CRAB_PrivateMC/fernanpe-ZprimeToMuMu5000_GEN_SIM-33cc5165aa796edde06dc091a315917f/USER'
+config.Data.inputDataset = '/CRAB_PrivateMC/fernanpe-ZprimeToMuMu5000_GEN_SIM_PREMIX-9929bc19d8d052a923e20fefa1f86f06/USER'
 
 config.section_("Site")
 #config.Site.storageSite = 'T2_CH_CERN'
